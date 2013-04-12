@@ -54,10 +54,17 @@ Foam Roller acquired. Get ready @P90X2, I'm coming for ya! #bestshapeofmylife
 
 Ohmygoshohmygosh #bringit @P90X2 http://t.co/BjUkKpcd
 
-## Disclaimer
+## Disclaimers
 
-Only tested on Mac OS X.
-Pull requests are welcome!
+* Only tested on Mac OS X.
+
+* Pull requests are welcome!
+
+* Twitter's API only allows a given network to hit their API 150 times per hour. Check out the [docs](https://dev.twitter.com/docs/rate-limiting/1.1) for more info.
+
+## TODO
+
+* Handle Twitter's 400s and have friendly output.
 
 ## License
 Copyright (c) 2013 Bryan (Bash) Ash

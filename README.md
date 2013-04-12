@@ -62,10 +62,6 @@ Ohmygoshohmygosh #bringit @P90X2 http://t.co/BjUkKpcd
 
 * Twitter's API only allows a given network to hit their API 150 times per hour. Check out the [docs](https://dev.twitter.com/docs/rate-limiting/1.1) for more info.
 
-## TODO
-
-* Handle Twitter's 400s and have friendly output.
-
 ## License
 Copyright (c) 2013 Bryan (Bash) Ash
 

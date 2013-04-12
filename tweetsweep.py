@@ -2,7 +2,6 @@ import json
 import urllib2
 import csv
 import argparse
-import operator
 
 
 def look_for_tweets(handles, matches, excludes, **options):
@@ -27,7 +26,7 @@ def get_tweets_for_user(handle, matches, excludes, options):
     relevant_tweets = []
     max_id = 0
     while True:
-        tweets = get_page_of_tweets(handle, max_id)
+        tweets = fetch_page_of_tweets(handle, max_id)
         if not len(tweets):
             break
 
@@ -37,13 +36,16 @@ def get_tweets_for_user(handle, matches, excludes, options):
     return relevant_tweets
 
 
-def get_page_of_tweets(handle, max_id):
+def fetch_page_of_tweets(handle, max_id):
     url = "http://api.twitter.com/1/statuses/user_timeline/%s.json?count=200&include_entities=true" % handle
     if max_id:
         url += "&max_id=%s" % max_id
-
-    tweets = json.load(urllib2.urlopen(url))
-    return tweets
+    response = urllib2.urlopen(url)
+    if response.getcode() is 429 or response.getcode() is 420:
+        print "Yo dawg, you're bogging down twitter, and they're cutting you off. Take a breather, come back in 15 minutes or so."
+        raise Exception()
+    else:
+        return json.load(response)
 
 
 def is_relevant_tweet(tweet, matches, excludes, options):

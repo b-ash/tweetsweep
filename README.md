@@ -1,4 +1,6 @@
-# TweetSweep (Deprecated, uses Twitter API v1)
+# TweetSweep 
+
+(Deprecated, uses Twitter API v1)
 
 ## What is TweetSweep?
 
